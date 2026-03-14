@@ -1,29 +1,16 @@
 #  Mean and variance of a discrete  distribution
-
-
 # Aim : 
-
 To find mean and variance of arrival of objects from the feeder using probability distribution
-
-
 # Software required :  
-
 Python and Visual components tool
-
 # Theory:
-
 The expectation or the mean of a discrete random variable is a weighted average of all possible
 values of the random variable. The weights are the probabilities associated with the corresponding values. 
 It is calculated as,
-
 ![image](https://user-images.githubusercontent.com/103921593/192938463-e34177f4-f188-48a0-bda2-8f6d1d660ed2.png)
-
 The variance of a random variable shows the variability or the scatterings of the random variables.
 It shows the distance of a random variable from its mean. It is calcualted as
-
 ![image](https://user-images.githubusercontent.com/103921593/192938695-99fedc01-34d5-4d36-84df-5880e766ed0c.png)
-
-
 # Procedure :
 
 1. Construct frequency distribution for the data
@@ -50,15 +37,11 @@ It shows the distance of a random variable from its mean. It is calcualted as
 # Program :
 ```
 import numpy as np
-
 L = [int(i) for i in input("Enter arrival data: ").split()]
-
 N = len(L)
 M = max(L)
 X = []
 f = []
-
-
 for i in range(M + 1):
     c = 0
     for j in range(N):
@@ -66,22 +49,12 @@ for i in range(M + 1):
             c += 1
     f.append(c)
     X.append(i)
-
 sf = np.sum(f)
-
-
 p = [f[i] / sf for i in range(M + 1)]
-
 mean = np.inner(X, p)
-
-
 EX2 = np.inner(np.square(X), p)
-
-
 var = EX2 - mean**2
 SD = np.sqrt(var)
-
-
 print("\nX\tp(x)")
 for i in range(M + 1):
     if f[i] > 0:   # Only print arrivals that actually occurred
@@ -91,12 +64,8 @@ print(f"\nThe Mean arrival rate is {mean:.3f}")
 print(f"The Variance of arrival from feeder is {var:.3f}")
 print(f"The Standard deviation of arrival from feeder is {SD:.3f}")
 ```
-
-
 # Output : 
 <img width="816" height="494" alt="Screenshot 2026-03-08 142031" src="https://github.com/user-attachments/assets/853b4368-184a-49c9-9a31-dca18283ebe3" />
-
-
 # Results :
 The mean and variance of arrivals of objects from feeder using probability distribution are calculated.
 
